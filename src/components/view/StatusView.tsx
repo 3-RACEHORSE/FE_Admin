@@ -24,17 +24,17 @@ export default function StatusView({ type }: Props) {
       </div>
       <div className="flex justify-between font-bold text-white-400 text-sm bg-[#121822] rounded-lg">
         {type === "Advertisement" && (
-          <Link href="i/flow/info/one">
+          <Link href="/i/flow/info/one">
             <button className="p-1 pl-4 pr-4 w-full">View And Edit</button>
           </Link>
         )}
         {type === "Payment" && (
-          <Link href="i/flow/info/two">
+          <Link href="/i/flow/info/two">
             <button className="p-1 pl-4 pr-4 w-full">View And Edit</button>
           </Link>
         )}
         {type === "Donation" && (
-          <Link href="i/flow/info/three">
+          <Link href="/i/flow/info/three">
             <button className="p-1 pl-4 pr-4 w-full">View And Edit</button>
           </Link>
         )}
