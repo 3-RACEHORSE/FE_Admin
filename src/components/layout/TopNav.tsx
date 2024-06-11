@@ -1,3 +1,5 @@
+import StautsView from "../view/StatusView";
+
 export default function TopNav() {
   return (
     <nav className="bg-[#624BFF] text-white relative">
@@ -8,20 +10,11 @@ export default function TopNav() {
       <button className="absolute top-0 right-0 mt-8 mr-10 bg-[#1e293B] px-4 py-2 text-[13px] rounded">
         Create New Participant
       </button>
-      <div className="absolute -bottom-20 left-0 w-full flex justify-evenly">
-        <div
-          className="h-40 rounded-lg bg-[#1e293B]"
-          style={{ width: "30%" }}
-        ></div>
-        <div
-          className="h-40 rounded-lg bg-[#1e293B]"
-          style={{ width: "30%" }}
-        ></div>
-        <div
-          className="h-40 rounded-lg bg-[#1e293B]"
-          style={{ width: "30%" }}
-        ></div>
-      </div>
+      <section className="absolute -bottom-20 left-0 w-full flex justify-evenly">
+        <StautsView type="Advertisement" />
+        <StautsView type="Payment" />
+        <StautsView type="Donation" />
+      </section>
     </nav>
   );
 }
