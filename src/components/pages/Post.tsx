@@ -53,26 +53,16 @@ const Post: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        margin: "auto",
-      }}
+      className="flex flex-col items-center w-full max-w-lg mx-auto"
     >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <div className="flex justify-between w-full mb-4 mt-8">
         <input
           type="text"
           name="influencerUuid"
           value={formData.influencerUuid}
           onChange={handleChange}
           placeholder="Influencer UUID"
-          style={{ marginBottom: "10px", width: "30%" }}
+          className="w-2/5 px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
         />
         <input
           type="text"
@@ -80,102 +70,101 @@ const Post: React.FC = () => {
           value={formData.influencerName}
           onChange={handleChange}
           placeholder="Influencer Name"
-          style={{ marginBottom: "10px", width: "30%" }}
+          className="w-3/5 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <input
+        type="text"
+        name="title"
+        value={formData.title}
+        onChange={handleChange}
+        placeholder="Title"
+        className="w-full px-3 py-2 mb-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+      />
+      <textarea
+        name="content"
+        value={formData.content}
+        onChange={handleChange}
+        placeholder="Content"
+        className="w-full h-32 px-3 py-2 mb-4 border rounded-md border-gray-300 resize-none focus:outline-none focus:border-blue-500"
+      ></textarea>
+      <div className="flex justify-between w-full mb-4">
+        <input
+          type="number"
+          name="numberOfEventParticipants"
+          value={formData.numberOfEventParticipants}
+          onChange={handleChange}
+          placeholder="Number of Event Participants"
+          className="w-1/3 px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="number"
+          name="startPrice"
+          value={formData.startPrice}
+          onChange={handleChange}
+          placeholder="Start Price"
+          className="w-1/3 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="number"
+          name="incrementUnit"
+          value={formData.incrementUnit}
+          onChange={handleChange}
+          placeholder="Increment Unit"
+          className="w-1/3 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div className="flex justify-between w-full mb-4">
+        <input
+          type="text"
+          name="localName"
+          value={formData.localName}
+          onChange={handleChange}
+          placeholder="Local Name"
+          className="w-1/2 px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
         />
         <input
           type="text"
-          name="title"
-          value={formData.title}
+          name="eventPlace"
+          value={formData.eventPlace}
           onChange={handleChange}
-          placeholder="Title"
-          style={{ marginBottom: "10px", width: "30%" }}
+          placeholder="Event Place"
+          className="w-1/2 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
         />
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <textarea
-          name="content"
-          value={formData.content}
+      <div className="flex justify-between w-full mb-4">
+        <input
+          type="datetime-local"
+          name="eventStartTime"
+          value={formData.eventStartTime}
           onChange={handleChange}
-          placeholder="Content"
-          style={{ marginBottom: "10px" }}
-        ></textarea>
+          placeholder="Event Start Time"
+          className="w-1/3 px-3 py-2 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="datetime-local"
+          name="eventCloseTime"
+          value={formData.eventCloseTime}
+          onChange={handleChange}
+          placeholder="Event Close Time"
+          className="w-1/3 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="datetime-local"
+          name="auctionStartTime"
+          value={formData.auctionStartTime}
+          onChange={handleChange}
+          placeholder="Auction Start Time"
+          className="w-1/3 px-3 py-2 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        />
       </div>
-      <input
-        type="number"
-        name="numberOfEventParticipants"
-        value={formData.numberOfEventParticipants}
-        onChange={handleChange}
-        placeholder="Number of Event Participants"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="text"
-        name="localName"
-        value={formData.localName}
-        onChange={handleChange}
-        placeholder="Local Name"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="text"
-        name="eventPlace"
-        value={formData.eventPlace}
-        onChange={handleChange}
-        placeholder="Event Place"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="datetime-local"
-        name="eventStartTime"
-        value={formData.eventStartTime}
-        onChange={handleChange}
-        placeholder="Event Start Time"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="datetime-local"
-        name="eventCloseTime"
-        value={formData.eventCloseTime}
-        onChange={handleChange}
-        placeholder="Event Close Time"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="datetime-local"
-        name="auctionStartTime"
-        value={formData.auctionStartTime}
-        onChange={handleChange}
-        placeholder="Auction Start Time"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="number"
-        name="startPrice"
-        value={formData.startPrice}
-        onChange={handleChange}
-        placeholder="Start Price"
-        style={{ marginBottom: "10px" }}
-      />
-      <input
-        type="number"
-        name="incrementUnit"
-        value={formData.incrementUnit}
-        onChange={handleChange}
-        placeholder="Increment Unit"
-        style={{ marginBottom: "10px" }}
-      />
       <input
         type="text"
         name="thumbnail"
         value={formData.thumbnail}
         onChange={handleChange}
         placeholder="Thumbnail URL"
-        style={{ marginBottom: "10px" }}
+        className="w-full px-3 py-2 mb-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
       />
       <input
         type="text"
@@ -183,9 +172,12 @@ const Post: React.FC = () => {
         value={formData.images[0]}
         onChange={handleImageChange}
         placeholder="Image URL"
-        style={{ marginBottom: "10px" }}
+        className="w-full px-3 py-2 mb-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
       />
-      <button type="submit" style={{ marginTop: "20px" }}>
+      <button
+        type="submit"
+        className="w-full px-4 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+      >
         Submit
       </button>
     </form>
