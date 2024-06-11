@@ -3,9 +3,15 @@ import { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   changeComponent: ReactNode;
-  postInfo: ReactNode;
+  post: ReactNode;
+  modal: ReactNode;
 };
-export default function Layout({ children, changeComponent, postInfo }: Props) {
+export default function Layout({
+  children,
+  changeComponent,
+  post,
+  modal,
+}: Props) {
   return (
     <div>
       {children}
@@ -14,8 +20,10 @@ export default function Layout({ children, changeComponent, postInfo }: Props) {
         style={{ height: "350px", paddingLeft: "2.5%", paddingRight: "2.5%" }}
       >
         {changeComponent}
-        {postInfo}
+        {post}
       </div>
+
+      {modal}
     </div>
   );
 }
