@@ -4,13 +4,13 @@ type Props = {
   children: ReactNode;
   changeComponent: ReactNode;
   post: ReactNode;
-  modal: ReactNode;
+  postInfo: ReactNode;
 };
 export default function Layout({
   children,
   changeComponent,
   post,
-  modal,
+  postInfo,
 }: Props) {
   return (
     <div>
@@ -20,10 +20,9 @@ export default function Layout({
         style={{ height: "350px", paddingLeft: "2.5%", paddingRight: "2.5%" }}
       >
         {changeComponent}
-        {post}
+        {postInfo}
       </div>
-
-      {modal}
+      {post}
     </div>
   );
 }
