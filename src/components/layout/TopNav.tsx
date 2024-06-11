@@ -11,9 +11,9 @@ export default function TopNav() {
         Create New Participant
       </button>
       <section className="absolute -bottom-20 left-0 w-full flex justify-evenly">
-        <StautsView />
-        <StautsView />
-        <StautsView />
+        <StautsView type="Advertisement" />
+        <StautsView type="Payment" />
+        <StautsView type="Donation" />
       </section>
     </nav>
   );

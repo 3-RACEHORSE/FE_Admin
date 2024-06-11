@@ -1,13 +1,8 @@
 export default function Page() {
   return (
     <div
-      style={{
-        background: "red",
-        width: "57.2%",
-        height: "100%",
-        borderRadius: "5px",
-        backgroundColor: "#1e293B",
-      }}
+      className=" h-full rounded-lg bg-[#1e2938]"
+      style={{ width: "57.3%" }}
     ></div>
   );
 }
