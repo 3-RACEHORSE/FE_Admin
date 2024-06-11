@@ -9,7 +9,7 @@ export default function StatusView() {
         <p>Donation</p>
       </div>
       <div className="flex justify-between font-bold text-white-400 text-4xl">
-        <p>Donation</p>
+        <p>100,000,000</p>
       </div>
       <div className="flex justify-between font-bold text-white-400 text-sm bg-[#121822] rounded-lg">
         <button className="p-1 pl-4 pr-4 w-full">View And Edit</button>
