@@ -4,13 +4,13 @@ type Props = {
   children: ReactNode;
   changeComponent: ReactNode;
   post: ReactNode;
-  modal: ReactNode;
+  write: ReactNode;
 };
 export default function Layout({
   children,
   changeComponent,
   post,
-  modal,
+  write,
 }: Props) {
   return (
     <div>
@@ -22,8 +22,12 @@ export default function Layout({
         {changeComponent}
         {post}
       </div>
-
-      {modal}
+      <div
+        className="flex items-center justify-between w-full mt-9"
+        style={{ height: "200px", paddingLeft: "2.5%", paddingRight: "2.5%" }}
+      >
+        {write}
+      </div>
     </div>
   );
 }
