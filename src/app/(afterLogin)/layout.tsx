@@ -17,16 +17,14 @@ export default function Layout({
       {children}
       <div
         className="flex items-center justify-between w-full mt-28"
-        style={{ height: "350px", paddingLeft: "2.5%", paddingRight: "2.5%" }}
+        style={{
+          height: "400px",
+          paddingLeft: "2.5%",
+          paddingRight: "2.5%",
+        }}
       >
         {changeComponent}
         {post}
-      </div>
-      <div
-        className="flex items-center justify-between w-full mt-9"
-        style={{ height: "200px", paddingLeft: "2.5%", paddingRight: "2.5%" }}
-      >
-        {write}
       </div>
     </div>
   );
