@@ -61,10 +61,15 @@ const Post: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const deleteImage = (index: number) => {
-    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setImages((prevImages) => {
+      // If there are more than 1 images and the index is 0, do not delete the image
+      if (prevImages.length > 1 && index === 0) {
+        return prevImages;
+      }
+      return prevImages.filter((_, i) => i !== index);
+    });
     setCurrentImageIndex(null);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
     setCurrentImageIndex(null);
@@ -216,7 +221,7 @@ const Post: React.FC = () => {
               src={images[currentImageIndex].src}
               style={{ height: "fit-content", width: "100%" }}
               initialAspectRatio={1}
-              aspectRatio={1}
+              aspectRatio={currentImageIndex > 0 ? 1 : 2 / 3}
               guides={false}
               ref={cropperRef}
               zoomable={false}
