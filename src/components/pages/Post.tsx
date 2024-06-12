@@ -6,6 +6,7 @@ import { handleImageUpload, handleCrop } from "@/utils/imageHandlers";
 import Modal from "@/components/pages/Modal";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
+import { RiAdvertisementFill } from "react-icons/ri";
 
 interface ImageData {
   src: string;
@@ -77,7 +78,11 @@ const Post: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center p-3">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center p-3"
+      style={{ height: "100%", justifyContent: "space-between" }}
+    >
       <div className="flex justify-between w-full mb-4 mt-2">
         <input
           type="text"
@@ -111,6 +116,38 @@ const Post: React.FC = () => {
         placeholder="Content"
         className="w-full h-30 px-2 py-1 mb-4 border rounded-md border-gray-300 resize-none focus:outline-none focus:border-blue-500"
       ></textarea>
+      <div className="flex justify-between w-full">
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>최대인원 수</p>
+        </div>
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>시작가</p>
+        </div>
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>단위가</p>
+        </div>
+      </div>
       <div className="flex justify-between w-full mb-4">
         <input
           type="text"
@@ -154,6 +191,38 @@ const Post: React.FC = () => {
           placeholder="Event Place"
           className="w-4/5 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
         />
+      </div>
+      <div className="flex justify-between w-full">
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>행사시작시간</p>
+        </div>
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>행사종료시간</p>
+        </div>
+        <div
+          style={{
+            width: "32%",
+            textAlign: "center",
+            color: "gray",
+            fontSize: "13px",
+          }}
+        >
+          <p>경매시작시간</p>
+        </div>
       </div>
       <div className="flex justify-between w-full mb-4">
         <input
