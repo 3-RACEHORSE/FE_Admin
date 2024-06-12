@@ -18,7 +18,7 @@ export default function Layout({
       <div
         className="flex items-center justify-between w-full mt-28"
         style={{
-          height: "670px",
+          height: "580px",
           paddingLeft: "2.5%",
           paddingRight: "2.5%",
         }}
