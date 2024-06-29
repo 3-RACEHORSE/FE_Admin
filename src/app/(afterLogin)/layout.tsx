@@ -3,9 +3,11 @@ import { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   chat: ReactNode;
+  chatRoom: ReactNode;
+
   post: ReactNode;
 };
-export default function Layout({ children, chat, post }: Props) {
+export default function Layout({ children, chat, chatRoom, post }: Props) {
   return (
     <div>
       {children}
@@ -17,7 +19,20 @@ export default function Layout({ children, chat, post }: Props) {
           paddingRight: "2.5%",
         }}
       >
-        {chat}
+        <div
+          style={{
+            height: "100%",
+            width: "57.3%",
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "0.5%",
+            background: "#0000006e",
+            borderRadius: "7px",
+          }}
+        >
+          {chat}
+          {chatRoom}
+        </div>
         {post}
       </div>
     </div>

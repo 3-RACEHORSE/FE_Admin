@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import styles from "./wrtiePage.module.scss";
+import styles from "@/styles/wrtiePage.module.scss";
 import { handleImageUpload, handleCrop } from "@/utils/imageHandlers";
 import Modal from "@/components/pages/Modal";
 import Cropper from "react-cropper";

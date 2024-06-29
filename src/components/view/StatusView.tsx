@@ -5,9 +5,10 @@ import { RiAdvertisementFill } from "react-icons/ri";
 
 interface Props {
   type: string;
+  price: number;
 }
 
-export default function StatusView({ type }: Props) {
+export default function StatusView({ type, price }: Props) {
   return (
     <div
       className="h-40 rounded-lg bg-[#0000006e]  text-white p-3 flex flex-col justify-between"
@@ -22,7 +23,7 @@ export default function StatusView({ type }: Props) {
         {type === "Donation" && <BiSolidDonateHeart size={40} color="white" />}
       </div>
       <div className="flex justify-between font-bold text-white-400 text-3xl">
-        <p>100,000,000</p>
+        <p>{price}</p>
       </div>
       {/* <div className="flex justify-between font-bold text-white-400 text-sm bg-[#ffffff] rounded-lg">
         {type === "Advertisement" && (

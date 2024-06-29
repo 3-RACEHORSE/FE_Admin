@@ -1,7 +1,14 @@
 import Link from "next/link";
 import StautsView from "../view/StatusView";
+import { cookies } from "next/headers";
+import { getMoneyData } from "@/api/getMoneyData";
 
-export default function TopNav() {
+export default async function TopNav() {
+  const authorization = cookies().get("authorization")?.value;
+  const uuid = cookies().get("uuid")?.value;
+
+  const data = await getMoneyData(authorization, uuid);
+
   return (
     <nav className="bg-[#00000000] text-white relative">
       <div className="max-w-screen-lg mx-auto flex justify-between items-end pt-6 pb-36 px-20"></div>
@@ -10,9 +17,9 @@ export default function TopNav() {
       </div>
 
       <section className="absolute -bottom-20 left-0 w-full flex justify-evenly">
-        <StautsView type="Advertisement" />
-        <StautsView type="Payment" />
-        <StautsView type="Donation" />
+        <StautsView type="Advertisement" price={data.totalDonation} />
+        <StautsView type="Payment" price={data.totalDonation} />
+        <StautsView type="Donation" price={data.totalDonation} />
       </section>
     </nav>
   );
