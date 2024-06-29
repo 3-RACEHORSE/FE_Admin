@@ -8,7 +8,7 @@ export default async function TopNav() {
   const uuid = cookies().get("uuid")?.value;
 
   const data = await getMoneyData(authorization, uuid);
-
+  console.log(data);
   return (
     <nav className="bg-[#00000000] text-white relative">
       <div className="max-w-screen-lg mx-auto flex justify-between items-end pt-6 pb-36 px-20"></div>
