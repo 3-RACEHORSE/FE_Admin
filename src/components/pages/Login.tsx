@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import LoginForm from "@/components/forms/LoginForm";
-import handleLogin from "@/utils/handleLogin";
+import handleLogin from "@/api/handleLogin";
 import { useRouter } from "next/navigation";
 
 export default function Login() {

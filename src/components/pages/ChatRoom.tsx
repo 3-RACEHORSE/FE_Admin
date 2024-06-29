@@ -1,15 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useParams } from "next/navigation";
 import { useInView } from "react-intersection-observer";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { EventSourcePolyfill } from "event-source-polyfill";
-
-// import BoardInfo from "@/components/molecules/BoardInfo";
-// import BackHeader from "../layout/BackHeader";
-// import { convertUToKST } from "@/utils/convertUToKst";
-// import { sessionValid } from "@/utils/session/sessionValid";
 import styles from "@/styles/chat.module.scss";
 
 interface ChatProps {
@@ -28,17 +22,13 @@ interface ChatType {
 
 const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
   const [chatData, setChatData] = useState<ChatType[]>([]);
-  const [userUUID, setUserUUID] = useState<any>("");
   const [newMessage, setNewMessage] = useState<string>("");
-  // const [temp, setTemp] = useState<boolean>(false);
-  // const [focus, setFocus] = useState<boolean>(false);
 
   const { ref, inView } = useInView();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const prevScrollHeight = useRef<number>(0);
   const isAtBottom = useRef<boolean>(true);
-  // const inputRef = useRef<HTMLInputElement>(null);
 
   const fetchListData = useCallback(
     async ({ pageParam = 0 }) => {
@@ -57,15 +47,9 @@ const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
       );
 
       const data = await res.json();
-      console.log(data);
       const reversedData = data.previousChatWithMemberInfoDtos.reverse();
 
       setChatData((prevData) => [...reversedData, ...prevData]);
-      // if (pageParam === 0) {
-      //   setTemp(!temp);
-      // }
-      console.log(chatData);
-
       return reversedData;
     },
     [roomNumber]
@@ -82,6 +66,7 @@ const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
       return nextPage;
     },
   });
+
   useEffect(() => {
     if (inView && hasNextPage) {
       fetchNextPage();
@@ -210,8 +195,6 @@ const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
 
       setNewMessage("");
       scrollToBottom();
-      // setTemp(!temp);
-      // setFocus(!focus);
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -274,7 +257,6 @@ const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
       <div className={styles.chatInput}>
         <input
           type="text"
-          // ref={inputRef} // Attach the ref to the input field
           placeholder="메시지를 입력하세요..."
           value={newMessage}
           onChange={handleMessageChange}
