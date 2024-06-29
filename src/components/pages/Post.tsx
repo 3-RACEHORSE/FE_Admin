@@ -13,7 +13,12 @@ interface ImageData {
   croppedSrc: string | null;
 }
 
-const Post: React.FC = () => {
+interface PostProps {
+  authorization: any;
+  uuid: any;
+}
+
+const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
   const [formData, setFormData] = useState({
     influencerUuid: "",
     influencerName: "",
@@ -62,10 +67,8 @@ const Post: React.FC = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJUb2tlblR5cGUiOiJhY2Nlc3MiLCJyb2xlIjoiUk9MRV9hZG1pbiIsInN1YiI6IjY5YTM3YzQ1LWNhMWYtNDdjMi04YmJmLWRlNmU5ODQyM2ViMCIsImlhdCI6MTcxOTY0NTA1NCwiZXhwIjoxNzE5OTA0MjU0fQ.MTxkC6fVX3OdCZjpNAF8sfXyTbfnAoHBEwDtw1Wh86s`,
-            uuid: `69a37c45-ca1f-47c2-8bbf-de6e98423eb0`,
-            // authorization: `Bearer ${authorization}`,
-            // uuid: `${uuid}`,
+            authorization: `Bearer ${authorization}`,
+            uuid: `${uuid}`,
           },
           body: JSON.stringify({
             influencerUuid: formData.influencerUuid,
