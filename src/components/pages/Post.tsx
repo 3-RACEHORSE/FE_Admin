@@ -13,7 +13,12 @@ interface ImageData {
   croppedSrc: string | null;
 }
 
-const Post: React.FC = () => {
+interface PostProps {
+  authorization: any;
+  uuid: any;
+}
+
+const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
   const [formData, setFormData] = useState({
     influencerUuid: "",
     influencerName: "",
@@ -44,13 +49,58 @@ const Post: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log(formData); // Assuming `formData` is an object containing your form data
+    const thumbnail = images[0].croppedSrc;
+    let croppedSrcArray = images
+      .map((image) => image.croppedSrc)
+      .filter((_, index) => index !== 0);
+
+    if (thumbnail === null || croppedSrcArray.includes(null)) {
+      return;
+    }
+    console.log(thumbnail, croppedSrcArray);
     console.log(formData);
-    // try {
-    //   const response = await axios.post('your-api-endpoint', formData);
-    //   console.log('Response:', response.data);
-    // } catch (error) {
-    //   console.error('Error submitting form:', error);
-    // }
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/auctionpost-service/api/v1/auction-post`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${authorization}`,
+            uuid: `${uuid}`,
+          },
+          body: JSON.stringify({
+            influencerUuid: formData.influencerUuid,
+            influencerName: formData.influencerName,
+            title: formData.title,
+            content: formData.content,
+            numberOfEventParticipants: formData.numberOfEventParticipants,
+            localName: formData.localName,
+            eventPlace: formData.eventPlace,
+            eventStartTime: formData.eventStartTime,
+            eventCloseTime: formData.eventCloseTime,
+            auctionStartTime: formData.auctionStartTime,
+            startPrice: formData.startPrice,
+            incrementUnit: formData.incrementUnit,
+            thumbnail: thumbnail,
+            images: croppedSrcArray,
+          }),
+        }
+      );
+
+      console.log("Response status:", response.status);
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      // const data = await response.json();
+      // console.log("Response data:", data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle errors such as showing an error message to the user
+    }
   };
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

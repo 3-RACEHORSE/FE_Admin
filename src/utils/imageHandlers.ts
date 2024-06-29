@@ -14,6 +14,8 @@ export const handleImageUpload = (
   setIsModalOpen: Dispatch<SetStateAction<boolean>>,
   images: ImageData[]
 ) => {
+  event.stopPropagation();
+  event.preventDefault();
   const files = event.target.files;
   if (files) {
     const newImages: ImageData[] = [];

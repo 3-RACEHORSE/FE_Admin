@@ -24,7 +24,7 @@ export default function StatusView({ type }: Props) {
       <div className="flex justify-between font-bold text-white-400 text-3xl">
         <p>100,000,000</p>
       </div>
-      <div className="flex justify-between font-bold text-white-400 text-sm bg-[#ffffff] rounded-lg">
+      {/* <div className="flex justify-between font-bold text-white-400 text-sm bg-[#ffffff] rounded-lg">
         {type === "Advertisement" && (
           <Link href="/i/flow/info/one">
             <button className="p-1 pl-4 pr-4 w-full text-black">
@@ -46,7 +46,7 @@ export default function StatusView({ type }: Props) {
             </button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
