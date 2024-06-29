@@ -2,16 +2,10 @@ import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  changeComponent: ReactNode;
+  chat: ReactNode;
   post: ReactNode;
-  write: ReactNode;
 };
-export default function Layout({
-  children,
-  changeComponent,
-  post,
-  write,
-}: Props) {
+export default function Layout({ children, chat, post }: Props) {
   return (
     <div>
       {children}
@@ -23,7 +17,7 @@ export default function Layout({
           paddingRight: "2.5%",
         }}
       >
-        {changeComponent}
+        {chat}
         {post}
       </div>
     </div>

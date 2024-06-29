@@ -17,19 +17,33 @@
 }
 
 body {
+  /* 초기 배경 설정 */
   background: linear-gradient(
     135deg,
+    #7349ff,
     #ff7e5d,
-    rgb(228, 83, 83),
+    #a87cff,
+    rgb(255, 122, 164),
     #7349ff,
     #ff3300
   );
-
   margin: 0;
-  background-size: cover;
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
   height: 100vh;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
