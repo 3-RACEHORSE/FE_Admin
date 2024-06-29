@@ -6,7 +6,6 @@ import { handleImageUpload, handleCrop } from "@/utils/imageHandlers";
 import Modal from "@/components/pages/Modal";
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
-import { RiAdvertisementFill } from "react-icons/ri";
 
 interface ImageData {
   src: string;
