@@ -161,13 +161,6 @@ export default function ChatList({
     fetchLastChatData();
   }, []);
 
-  const [click, setClick] = useState(false);
-
-  // Click handler to toggle background color
-  const handleClick = () => {
-    setClick(!click);
-  };
-
   const isHighlighted = useParams().id === roomNumber;
 
   return (
