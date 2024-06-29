@@ -90,7 +90,7 @@ const Post: React.FC = () => {
           value={formData.influencerUuid}
           onChange={handleChange}
           placeholder="Influencer UUID"
-          className="w-2/5 px-2 py-1 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-2/5 px-2 py-1 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="text"
@@ -98,7 +98,7 @@ const Post: React.FC = () => {
           value={formData.influencerName}
           onChange={handleChange}
           placeholder="Influencer Name"
-          className="w-3/5 px-1 py-0.8 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-3/5 px-1 py-0.8 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
       </div>
       <input
@@ -107,21 +107,21 @@ const Post: React.FC = () => {
         value={formData.title}
         onChange={handleChange}
         placeholder="Title"
-        className="w-full px-2 py-1 mb-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+        className="w-full px-2 py-1 mb-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
       />
       <textarea
         name="content"
         value={formData.content}
         onChange={handleChange}
         placeholder="Content"
-        className="w-full h-30 px-2 py-1 mb-4 border rounded-md border-gray-300 resize-none focus:outline-none focus:border-blue-500"
+        className="w-full h-30 px-2 py-1 mb-4 border rounded-md border-[#00000000] resize-none focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
       ></textarea>
       <div className="flex justify-between w-full">
         <div
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -131,7 +131,7 @@ const Post: React.FC = () => {
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -141,7 +141,7 @@ const Post: React.FC = () => {
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -155,7 +155,7 @@ const Post: React.FC = () => {
           value={formData.numberOfEventParticipants}
           onChange={handleChange}
           placeholder="Number of Event Participants"
-          className="w-1/3 px-2 py-1 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="text"
@@ -163,7 +163,7 @@ const Post: React.FC = () => {
           value={formData.startPrice}
           onChange={handleChange}
           placeholder="Start Price"
-          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="text"
@@ -171,7 +171,7 @@ const Post: React.FC = () => {
           value={formData.incrementUnit}
           onChange={handleChange}
           placeholder="Increment Unit"
-          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
       </div>
       <div className="flex justify-between w-full mb-4">
@@ -181,7 +181,7 @@ const Post: React.FC = () => {
           value={formData.localName}
           onChange={handleChange}
           placeholder="Local Name"
-          className="w-1/5 px-2 py-1 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/5 px-2 py-1 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="text"
@@ -189,7 +189,7 @@ const Post: React.FC = () => {
           value={formData.eventPlace}
           onChange={handleChange}
           placeholder="Event Place"
-          className="w-4/5 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-4/5 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
       </div>
       <div className="flex justify-between w-full">
@@ -197,7 +197,7 @@ const Post: React.FC = () => {
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -207,7 +207,7 @@ const Post: React.FC = () => {
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -217,7 +217,7 @@ const Post: React.FC = () => {
           style={{
             width: "32%",
             textAlign: "center",
-            color: "gray",
+            color: "white",
             fontSize: "13px",
           }}
         >
@@ -231,7 +231,7 @@ const Post: React.FC = () => {
           value={formData.eventStartTime}
           onChange={handleChange}
           placeholder="Event Start Time"
-          className="w-1/3 px-2 py-1 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="datetime-local"
@@ -239,7 +239,7 @@ const Post: React.FC = () => {
           value={formData.eventCloseTime}
           onChange={handleChange}
           placeholder="Event Close Time"
-          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
         <input
           type="datetime-local"
@@ -247,7 +247,7 @@ const Post: React.FC = () => {
           value={formData.auctionStartTime}
           onChange={handleChange}
           placeholder="Auction Start Time"
-          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-gray-300 focus:outline-none focus:border-blue-500"
+          className="w-1/3 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
       </div>
       {/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */}
