@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import styles from "@/styles/wrtiePage.module.scss";
-import { handleImageUpload, handleCrop } from "@/utils/imageHandlers";
-import Modal from "@/components/pages/Modal";
-import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
+import React, { useState } from "react";
 import { submitFormData } from "@/api/submitFormData";
-import { deleteImageAtIndex } from "@/utils/deleteImageAtIndex";
 import { useFormHandling } from "@/hooks/useFormHandling";
+import ImageUploadComponent from "@/components/tool/ImageUploadComponent";
+import Modal from "@/components/pages/Modal";
+import "cropperjs/dist/cropper.css";
+import ImageCropperModal from "@/components/tool/ImageCropperModal";
 
 interface ImageData {
   src: string;
@@ -26,25 +24,12 @@ const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(
     null
   );
-  const cropperRef = useRef<any>(null);
 
   //모달 상태 관련훅
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   //formData 초기화 및 변화감지
   const { formData, handleFormChange } = useFormHandling();
-
-  //index에 따른 이미지 삭제
-  const handleDeleteImage = (index: number) => {
-    deleteImageAtIndex(images, index, setImages, setCurrentImageIndex);
-  };
-
-  //모달 닫기
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setCurrentImageIndex(null);
-    setImages((prevImages) => prevImages.slice(0, -1));
-  };
 
   //최종전송
   const handleSubmit = async (e: React.FormEvent) => {
@@ -201,72 +186,25 @@ const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
           className="w-1/3 px-2 py-1 ml-4 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
         />
       </div>
-      {/* @@@@@@@@@@@@@@@@@@@@@@이미지 편집@@@@@@@@@@@@@@@@@@@@@@ */}
-      <input
-        type="file"
-        accept="image/*"
-        multiple
-        onChange={(event) =>
-          handleImageUpload(
-            event,
-            setImages,
-            setCurrentImageIndex,
-            setIsModalOpen,
-            images
-          )
-        }
-        className={styles["fileInput"]}
+      {/* 외부 이미지 편집 컴포넌트 */}
+      <ImageUploadComponent
+        images={images}
+        setImages={setImages}
+        setCurrentImageIndex={setCurrentImageIndex}
+        setIsModalOpen={setIsModalOpen}
       />
-      <div className={styles["flex-container"]}>
-        <ul className={styles["overflow-scroll"]}>
-          {images.map((image, index) => (
-            <div key={index} className={styles["imageContainer"]}>
-              {image.croppedSrc ? (
-                <img
-                  src={image.croppedSrc}
-                  alt={`Cropped ${index}`}
-                  className={styles["imageObject"]}
-                  onClick={() => handleDeleteImage(index)}
-                />
-              ) : null}
-            </div>
-          ))}
-        </ul>
-      </div>
 
+      {/* cropper 모달 컴포넌트 */}
       <Modal isOpen={isModalOpen}>
-        {currentImageIndex !== null && images[currentImageIndex] && (
-          <div className={styles["cropperContainer"]}>
-            <Cropper
-              src={images[currentImageIndex].src}
-              style={{ height: "fit-content", width: "100%" }}
-              initialAspectRatio={1}
-              aspectRatio={currentImageIndex > 0 ? 1 : 2 / 3}
-              guides={false}
-              ref={cropperRef}
-              zoomable={false}
-            />
-            <div className={styles["cropperBtnContainer"]}>
-              <button
-                onClick={() =>
-                  handleCrop(
-                    cropperRef,
-                    currentImageIndex,
-                    setImages,
-                    setIsModalOpen
-                  )
-                }
-                className={styles["cropButton1"]}
-              >
-                확인
-              </button>
-              <button onClick={closeModal} className={styles["cropButton2"]}>
-                취소
-              </button>
-            </div>
-          </div>
-        )}
+        <ImageCropperModal
+          isOpen={isModalOpen}
+          images={images}
+          currentImageIndex={currentImageIndex}
+          setImages={setImages}
+          setIsModalOpen={setIsModalOpen}
+        />
       </Modal>
+
       <button
         type="submit"
         className="w-full px-4 py-2 mt-2 text-white bg-[#624BFF] rounded-md hover:bg-[#33338c]"
