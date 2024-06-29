@@ -1,7 +1,30 @@
 import Link from "next/link";
 import StautsView from "../view/StatusView";
+import { cookies } from "next/headers";
 
-export default function TopNav() {
+async function getMoneyData() {
+  const authorization = cookies().get("authorization")?.value;
+  const uuid = cookies().get("uuid")?.value;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/api/v1/admin/payment/totaldonation`,
+    {
+      cache: "no-store",
+      headers: {
+        authorization: `Bearer ${authorization}`,
+        // uuid: `${uuid}`,
+      },
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await res.json();
+  return data;
+}
+
+export default async function TopNav() {
+  // const data = await getMoneyData();
   return (
     <nav className="bg-[#00000000] text-white relative">
       <div className="max-w-screen-lg mx-auto flex justify-between items-end pt-6 pb-36 px-20"></div>
@@ -10,9 +33,11 @@ export default function TopNav() {
       </div>
 
       <section className="absolute -bottom-20 left-0 w-full flex justify-evenly">
-        <StautsView type="Advertisement" />
-        <StautsView type="Payment" />
-        <StautsView type="Donation" />
+        <StautsView type="Advertisement" price={1000000} />
+        <StautsView type="Payment" price={1000000} />
+        <StautsView type="Donation" price={1000000} />
+
+        {/* <StautsView type="Donation" price={data.totalDontaion} /> */}
       </section>
     </nav>
   );

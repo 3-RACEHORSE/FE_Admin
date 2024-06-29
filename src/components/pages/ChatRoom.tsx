@@ -10,7 +10,7 @@ import { EventSourcePolyfill } from "event-source-polyfill";
 // import BackHeader from "../layout/BackHeader";
 // import { convertUToKST } from "@/utils/convertUToKst";
 // import { sessionValid } from "@/utils/session/sessionValid";
-import styles from "@/components/pages/chat.module.scss";
+import styles from "@/styles/chat.module.scss";
 
 interface ChatProps {
   authorization: any;
@@ -222,7 +222,7 @@ const ChatRoom: React.FC<ChatProps> = ({ authorization, uuid, roomNumber }) => {
       style={{
         width: "40%",
         height: "100%",
-        background: "#0000006e",
+        background: "#00000060",
         borderRadius: "0px 7px 7px 0px",
       }}
     >

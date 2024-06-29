@@ -2,7 +2,7 @@ import ChatList from "@/components/pages/ChatList";
 import ChatRoom from "@/components/pages/ChatRoom";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import styles from "@/components/pages/chat.module.scss";
+import styles from "@/styles/chat.module.scss";
 import Link from "next/link";
 
 async function getChatListData() {
@@ -45,7 +45,6 @@ export default async function Page() {
       style={{
         width: "60%",
         display: "flex",
-        padding: "0.5%",
         justifyContent: "space-between",
         borderRadius: "7px 0px 0px 7px",
       }}

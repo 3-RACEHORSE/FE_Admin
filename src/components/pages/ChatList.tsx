@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./chat.module.scss";
+import styles from "@/styles/chat.module.scss";
 import { EventSourcePolyfill, NativeEventSource } from "event-source-polyfill";
+import { useParams } from "next/navigation";
 
 interface ChatListProps {
   thumbnail?: any;
@@ -24,6 +25,7 @@ export default function ChatList({
   uuid,
   roomNumber,
 }: ChatListProps) {
+  console.log(useParams());
   const [chatInfo, setChatInfo] = useState<ChatListInfo>({
     content: "",
     createdAt: "",
@@ -159,8 +161,22 @@ export default function ChatList({
     fetchLastChatData();
   }, []);
 
+  const [click, setClick] = useState(false);
+
+  // Click handler to toggle background color
+  const handleClick = () => {
+    setClick(!click);
+  };
+
+  const isHighlighted = useParams().id === roomNumber;
+
   return (
-    <div className={styles["chatListContainer"]}>
+    <div
+      className={`${styles["chatListContainer"]} ${
+        isHighlighted ? styles["highlighted"] : ""
+      }`}
+    >
+      {" "}
       <div style={{ display: "flex", width: "80%" }}>
         <div className={styles["thumbnail"]}>
           <img src={thumbnail} />

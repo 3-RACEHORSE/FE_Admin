@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/components/pages/wrtiePage.module.scss";
+import styles from "@/styles/wrtiePage.module.scss";
 
 interface ModalProps {
   isOpen: boolean;
