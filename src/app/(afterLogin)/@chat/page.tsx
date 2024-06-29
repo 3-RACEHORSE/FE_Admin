@@ -1,55 +1,16 @@
 import ChatList from "@/components/pages/ChatList";
-import ChatRoom from "@/components/pages/ChatRoom";
-import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import styles from "@/styles/chat.module.scss";
 import Link from "next/link";
-
-async function getChatListData() {
-  const authorization = cookies().get("authorization")?.value;
-  const uuid = cookies().get("uuid")?.value;
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_REACT_APP_API_URL}/chat-service/api/v1/authorization/chat/chatRooms`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${authorization}`,
-        uuid: `${uuid}`,
-      },
-    }
-  );
-  console.log(res.status, "입니다");
-  if (res.status === 401 || res.status === 500) {
-    // 이후 에러코드 401로 수정 필요
-    console.log("토큰없");
-    redirect("/login");
-  }
-  if (!res.ok) {
-    // throw new Error("Network Error");
-    redirect("/login");
-  }
-
-  const data = await res.json();
-  return data;
-}
+import { getChatListData } from "@/api/getChatListData";
 
 export default async function Page() {
   const authorization = cookies().get("authorization")?.value;
   const uuid = cookies().get("uuid")?.value;
-
-  const data = await getChatListData();
+  const data = await getChatListData(authorization, uuid);
 
   return (
-    <div
-      className=" h-full bg-[#0000006e]"
-      style={{
-        width: "60%",
-        display: "flex",
-        justifyContent: "space-between",
-        borderRadius: "7px 0px 0px 7px",
-      }}
-    >
-      <div className={styles["chatListLayout"]}>
+    <main className="h-full bg-black bg-opacity-40 w-3/5 flex justify-between rounded-l-lg">
+      <div className="h-full w-full overflow-auto">
         {data.map((chat: any, index: any) => (
           <Link href={`/i/flow/info/${chat.roomNumber}`} key={index}>
             <ChatList
@@ -63,6 +24,6 @@ export default async function Page() {
           </Link>
         ))}
       </div>
-    </div>
+    </main>
   );
 }

@@ -11,14 +11,8 @@ export default function Page() {
   }
 
   return (
-    <div
-      className=" h-full rounded-lg bg-[#0000006e]"
-      style={{
-        width: "40%",
-        height: "100%",
-      }}
-    >
+    <main className="w-2/5 h-full rounded-lg bg-black bg-opacity-40">
       <Post authorization={authorization} uuid={uuid} />
-    </div>
+    </main>
   );
 }
