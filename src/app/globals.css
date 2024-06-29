@@ -17,8 +17,17 @@
 }
 
 body {
-  background-color: #121822;
+  background: linear-gradient(
+    135deg,
+    #ff7e5d,
+    rgb(228, 83, 83),
+    #7349ff,
+    #ff3300
+  );
+
   margin: 0;
+  background-size: cover;
+  height: 100vh;
 }
 
 @layer utilities {
