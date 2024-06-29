@@ -1,6 +1,9 @@
 export default function Payment() {
   return (
-    <div className="h-full rounded-lg bg-[#1e2938]" style={{ width: "57.3%" }}>
+    <div
+      className="h-full rounded-lg bg-[#0000006e]"
+      style={{ width: "57.3%" }}
+    >
       페이먼트
     </div>
   );
