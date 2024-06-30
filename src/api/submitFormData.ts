@@ -42,7 +42,7 @@ export const submitFormData = async (
       }
     );
 
-    console.log("전송 선공", response.status);
+    console.log("전송 선공", formData);
 
     if (!response.ok) {
       throw new Error("Network response was not ok");

@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { submitFormData } from "@/api/submitFormData";
 import { useFormHandling } from "@/hooks/useFormHandling";
 import ImageUploadComponent from "@/components/tool/ImageUploadComponent";
 import Modal from "@/components/pages/Modal";
 import "cropperjs/dist/cropper.css";
 import ImageCropperModal from "@/components/tool/ImageCropperModal";
+import getInfluencerData from "@/api/getInfluencerData";
 
 interface ImageData {
   src: string;
@@ -37,6 +38,30 @@ const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
     await submitFormData(formData, images, authorization, uuid);
   };
 
+  //인플루언서 리스트 받아오기
+  const [influencerList, setInfluencerList] = useState<any[]>([]);
+  const [selectedInfluencer, setSelectedInfluencer] = useState<string>("");
+
+  useEffect(() => {
+    fetchInfluencerList();
+  }, []);
+
+  const fetchInfluencerList = async () => {
+    try {
+      const response = await getInfluencerData(authorization);
+      setInfluencerList(response);
+    } catch (error) {
+      console.error("Error fetching influencer list:", error);
+    }
+  };
+
+  const handleInfluencerChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedInfluencer(event.target.value);
+    handleFormChange(event);
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -44,14 +69,26 @@ const Post: React.FC<PostProps> = ({ authorization, uuid }) => {
       style={{ height: "100%", justifyContent: "space-between" }}
     >
       <div className="flex justify-between w-full mb-4 mt-2">
-        <input
-          type="text"
+        <select
           name="influencerUuid"
-          value={formData.influencerUuid}
-          onChange={handleFormChange}
-          placeholder="Influencer UUID"
+          value={selectedInfluencer}
+          onChange={handleInfluencerChange}
           className="w-2/5 px-2 py-1 border rounded-md border-[#00000000] focus:outline-none focus:border-blue-500 bg-[#0000006e] text-[#ffffff]"
-        />
+        >
+          <option value="">Influencer uuid</option>
+          {influencerList.map((influencer) => (
+            <option
+              key={influencer.influencerUuid}
+              value={influencer.influencerUuid}
+            >
+              {influencer.name}
+              {" / "}
+              {influencer.description}
+              {" / "}
+              {influencer.influencerUuid}
+            </option>
+          ))}
+        </select>
         <input
           type="text"
           name="influencerName"
