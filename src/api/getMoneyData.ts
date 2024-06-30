@@ -6,7 +6,7 @@ export async function getMoneyData(authorization: any, uuid: any) {
     {
       cache: "no-store",
       headers: {
-        authorization: `Bearer ${authorization}`,
+        Authorization: `Bearer ${authorization}`,
         // uuid: `${uuid}`,
       },
     }

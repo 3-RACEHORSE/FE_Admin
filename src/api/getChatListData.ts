@@ -6,7 +6,7 @@ export async function getChatListData(authorization: any, uuid: any) {
     {
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${authorization}`,
+        Authorization: `Bearer ${authorization}`,
         uuid: `${uuid}`,
       },
     }

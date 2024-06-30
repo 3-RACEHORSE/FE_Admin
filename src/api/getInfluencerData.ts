@@ -5,7 +5,7 @@ const getInfluencerData = async (authorization: any) => {
       {
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${authorization}`,
+          Authorization: `Bearer ${authorization}`,
         },
       }
     ); // API 호출
