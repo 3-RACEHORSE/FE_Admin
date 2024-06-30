@@ -15,6 +15,7 @@ export async function getMoneyData(authorization: any, uuid: any) {
     throw new Error("Network Error");
   }
   const data = await res.json();
+  console.log(data);
   return data;
 }
 

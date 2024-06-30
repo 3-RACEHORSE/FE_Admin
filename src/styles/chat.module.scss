@@ -69,15 +69,18 @@
 }
 
 .count {
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(0, 0, 0, 0.438);
   color: white;
   font-weight: bold;
-  height: 23px;
-  width: 23px;
-  border-radius: 999px;
+  width: fit-content;
+  padding: 3%;
+  padding-left: 7%;
+  padding-right: 7%;
+  border-radius: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 
 .chatInput {
@@ -195,17 +198,18 @@
 
 .handle {
   font-weight: bold;
+  color: white;
 }
 
 .createdAt {
   font-size: 0.8em;
-  color: gray;
+  color: rgb(255, 255, 255);
 }
 
 .chatContent {
   max-width: 60%;
   word-wrap: break-word;
-  background-color: #00000038;
+  background-color: #ffffffd7;
   border-radius: 10px;
   padding: 10px;
   margin-top: 5px;

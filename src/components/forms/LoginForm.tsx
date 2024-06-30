@@ -1,14 +1,7 @@
 "use client";
 
 import React from "react";
-
-interface Props {
-  username: any;
-  password: any;
-  handleUsernameChange: any;
-  handlePasswordChange: any;
-  handleSubmit: any;
-}
+import { LoginFormProps } from "@/interface/LoginFormProps";
 
 function LoginForm({
   username,
@@ -16,7 +9,7 @@ function LoginForm({
   handleUsernameChange,
   handlePasswordChange,
   handleSubmit,
-}: Props) {
+}: LoginFormProps) {
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
       <div className="rounded-md shadow-sm -space-y-px">
