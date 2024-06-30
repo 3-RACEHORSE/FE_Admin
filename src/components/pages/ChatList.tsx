@@ -77,7 +77,7 @@ export default function ChatList({
         </div>
       </div>
       <div className={styles["updatedAt"]}>
-        {calculateRelativeTime(chatInfo.createdAt)}
+        {chatInfo.createdAt !== 0 && calculateRelativeTime(chatInfo.createdAt)}
         {chatNum > 0 && (
           <p className={styles["count"]}>채팅 총 개수 : {chatNum}</p>
         )}

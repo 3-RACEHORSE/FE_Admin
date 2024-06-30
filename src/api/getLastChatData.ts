@@ -21,11 +21,18 @@ const getLastChatData = async (
       }
     );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch last chat data");
-    }
+    // if (!response.ok) {
+    //   throw new Error("Failed to fetch last chat data");
+    // }
 
     const data = await response.json();
+
+    if (data.content == null || data.createdAt === null) {
+      return {
+        content: "채팅이 시작되지 않았습니다.",
+        createdAt: 0,
+      };
+    }
     return {
       content: data.content,
       createdAt: data.createdAt,
