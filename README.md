@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center" >
 
-## Getting Started
+# 🎉ADMIN SYSTEM
 
-First, run the development server:
+![alt text](/public/README/image.png)
+![alt text](/public/README/image-2.png)
 
-```bash
+### MEET PLUS 어드민 시스템입니다.
+
+</div>
+
+<div>
+
+</br>
+
+<div align="center">
+
+`2024/04/18 ~ 2024/07/04`
+
+</br>
+
+[ADMIN SYSTEM 바로가기](https://fe-admin-xi.vercel.app/login)
+
+</div>
+</div>
+
+</br>
+
+## 🔗사용 기술
+
+![NEXT.JS](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Tailwind](https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white) ![React Query](https://img.shields.io/badge/reactquery-%23FF4154?style=for-the-badge&logo=reactquery&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000?style=for-the-badge&logo=vercel&logoColor=white)
+<img src="https://img.shields.io/badge/amazons3-569A31?style=for-the-badge&logo=amazons3&logoColor=white">
+<img src="https://img.shields.io/badge/githubactions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white">
+
+</br>
+
+## 🔗로컬 실행 방법
+
+```
+npm i
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔗버전
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+node 18.17.1
 
-## Learn More
+next 14.2.3
 
-To learn more about Next.js, take a look at the following resources:
+eslint 8
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+react-query 5.40.0
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+tailwindcss 3.4.1
+```
 
-## Deploy on Vercel
+</br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔗기능
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div>
+
+- 어드민 전용 ID, PW 로그인
+- 토큰 여부에 따른 접근 제어
+- 경매글 등록
+- MEET PLUS 채팅 전체 관리
+- 수익관련 데이터 수치 패칭
+- 비율에 맞춰, 이미지 편집
+
+</div>
